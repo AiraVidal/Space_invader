@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="src/assets/images/player.png" type="image/x-icon">
+    <title>Classic Space Invaders | Felipe</title>
+    <style>
+      h1 {
+        margin: 20px 0 10px 0;
+        font-size: 1.7em;
+        font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+        color: black;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        margin: 0px;
+        height: 100vh;
+        background-color: #FFF;
+      }
+      #game, #title, #gameOverScreen, #winScreen {
+        display: none;
+      }
+      #instructions, #gameOverScreen, #winScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+      #instructions p, #gameOverScreen p, #winScreen p {
+        margin: 10px 0;
+        font-size: 1.2em;
+        font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+        color: black;
+      }
+      .button {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 1.2em;
+        font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+        color: rgb(255, 0, 0);
+        cursor: pointer;
+      }
+      .button:hover {
+        background: rgb(255, 0, 0);
+        color: white;
+        box-shadow: rgb(255, 119, 119) 5px 5px 10px;
+        transition: 0.3s;
+      }
+      #logoSenac {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      #score {
+        font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+        color: black;
+        font-size: 0.5em;
+        margin: 20px 0;
+      }
+      #link {
+        color: black;
+        cursor: pointer;
+      }
+      #link:hover {
+        color: rgb(255, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="logoSenac">
+      <div>
+        <img src="src/assets/images/logo-senac.png" alt="Logo Senac" width="200px" height="110px">
+      </div>
+      <div>
+        <img src="src/assets/images/logo-sesc.png" alt="Logo Sesc" width="200px" height="100px">
+      </div>
+    </div>
+    <div id="instructions">
+      <h1>Bem-vindo ao Jogo Space Invaders!</h1>
+      <p>Use as setas esquerda e direita para mover.</p>
+      <p>Pressione a barra de espaço para atirar.</p>
+      <button id="playButton" class="button">Jogar</button>
+    </div>
+    <div id="gameOverScreen">
+      <h1>Game Over</h1>
+      <p id="gameOverScreenScore"></p>
+      <button id="retryButton" class="button">Tentar Novamente</button>
+    </div>
+    <div id="winScreen">
+      <h1>Parabéns, você venceu!</h1>
+      <p id="winScreenScore"></p>
+      <button id="restartButton" class="button">Reiniciar</button>
+    </div>
+    <div>
+      <h1 id="title">Space Invaders</h1>
+      <p id="score">Pontuação: 0</p>
+    </div>
+    <canvas id="game"></canvas>
+    <script type="module" src="src/javascript/index.js"></script>
+    <footer 
+      id="footer" 
+      style="
+        color: black; 
+        margin-bottom: 20px;
+        font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+        font-size: 10px;
+      "
+    >
+      Copyright &copy; 2024 - &af;
+      <a
+        id="link"  
+        href="https://github.com/Ultra-pn4rv" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+      &af; Felipe Alves
+      </a>
+    </footer>
+  </body>
+</html>
