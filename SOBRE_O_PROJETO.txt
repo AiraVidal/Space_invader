@@ -1,0 +1,29 @@
+SPACE_INVADER - VISÃO GERAL
+
+Este projeto é um jogo clássico de Space Invaders feito em HTML e JavaScript.
+O objetivo é destruir todas as naves inimigas e alcançar a maior pontuação possível.
+
+Melhorias adicionadas nesta atualização:
+
+1) Correção importante de reinício:
+- O jogador acumulava listeners de teclado ao reiniciar a partida.
+- Agora os eventos são removidos corretamente antes de recriar o jogador.
+
+2) Controles aprimorados:
+- Movimento com setas (esquerda/direita) e também com A/D.
+- Barra de espaço continua responsável por atirar.
+
+3) Melhor experiência de jogo:
+- Tecla P para pausar e continuar a partida.
+- Mensagem visual de "PAUSADO" no canvas durante a pausa.
+
+4) Instruções atualizadas:
+- Tela inicial agora explica A/D e tecla P.
+
+Tecnologias:
+- HTML5
+- JavaScript (ES Modules)
+- Canvas API
+
+Repositório:
+https://github.com/AiraVidal/Space_invader

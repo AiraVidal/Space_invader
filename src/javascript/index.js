@@ -32,6 +32,7 @@ const enemyBulletController = new BulletController(canvas, 4, "black", true);
 let enemyController;
 let player;
 let playerScore = 0;
+let isPaused = false;
 
 function updateScore(enemyType) {
   const scoreMap = {
@@ -51,6 +52,10 @@ let didWin = false;
 let gameInterval;
 
 function initGame() {
+  if (player) {
+    player.destroy();
+  }
+
   enemyController = new EnemyController(
     canvas,
     enemyBulletController,
@@ -65,6 +70,21 @@ function initGame() {
 }
 
 function game() {
+  if (isPaused) {
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "black";
+    ctx.font = '28px "Press Start 2P"';
+    ctx.textAlign = "center";
+    ctx.fillText("PAUSADO", canvas.width / 2, canvas.height / 2);
+    ctx.font = '12px "Press Start 2P"';
+    ctx.fillText(
+      "Pressione P para continuar",
+      canvas.width / 2,
+      canvas.height / 2 + 40
+    );
+    return;
+  }
+
   checkGameOver();
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   displayGameOver();
@@ -122,6 +142,7 @@ function startGame() {
   footer.style.display = "none";
 
   canvas.style.display = "block";
+  isPaused = false;
   initGame();
   gameInterval = setInterval(game, 1000 / 60);
 }
@@ -134,9 +155,16 @@ function restartGame() {
   canvas.style.display = "none";
   footer.style.display = "flex";
   scoreDisplay.style.display = "none";
+  isPaused = false;
 
   initGame();
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.code === "KeyP" && canvas.style.display === "block" && !isGameOver) {
+    isPaused = !isPaused;
+  }
+});
 
 playButton.addEventListener("click", startGame);
 retryButton.addEventListener("click", restartGame);
